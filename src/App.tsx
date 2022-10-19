@@ -1,24 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Caculation from './comp/Caculation';
 
 function App() {
+  const eggCount = Caculation(25,300);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className=' text-neutral-700 text-5xl'> Your Egg count is {eggCount} </h1> 
     </div>
   );
 }
