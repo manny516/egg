@@ -1,11 +1,15 @@
 import './App.css';
-import Caculation from './comp/Caculation';
+import { useState,} from 'react';
+import Forms from './comp/ui/Forms';
 
 function App() {
-  const eggCount = Caculation(25,300);
+  const [counteggs,setCountEggs]= useState<number>(NaN);
+
   return (
     <div className="App">
-      <h1 className=' text-neutral-700 text-5xl'> Your Egg count is {eggCount} </h1> 
+      <Forms updateEggCount={setCountEggs} />
+      <h1 className=' text-neutral-700 text-5xl'> Your Egg count is {counteggs}</h1> 
+     
     </div>
   );
 }
