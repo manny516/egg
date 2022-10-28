@@ -1,7 +1,6 @@
 import { EggsStartNumber} from '../appTypes';
 
 
-
 const Caculation = (age:number, eggTotal:EggsStartNumber) =>{    
     
     if(age >=12){
@@ -16,9 +15,6 @@ const Caculation = (age:number, eggTotal:EggsStartNumber) =>{
                 }
                 const giveEggCount = () =>{
                     let returnCount = eggTotal - multiplyAgeWithEggs;
-                    if(returnCount < 0 ){
-                        returnCount = 0;
-                    }
                     return returnCount;
                 }
                 return giveEggCount();

@@ -1,15 +1,18 @@
 import './App.css';
-import { useState,} from 'react';
 import Forms from './comp/ui/Forms';
+import { useCalcForm } from './comp/hooks/useCalcForm';
+import EggProvider from './comp/utilz/EggProvider';
+import { EggsResult } from './comp/ui/EggResults';
 
 function App() {
-  const [counteggs,setCountEggs]= useState<number>(NaN);
-
+  console.count("Render Project : ");
+  const {calcData} = useCalcForm();
   return (
     <div className="App">
-      <Forms updateEggCount={setCountEggs} />
-      <h1 className=' text-neutral-700 text-5xl'> Your Egg count is {counteggs}</h1> 
-     
+      <EggProvider.Provider value={calcData}>
+        <EggsResult />
+        <Forms/>
+      </EggProvider.Provider>      
     </div>
   );
 }
