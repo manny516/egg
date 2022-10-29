@@ -12,6 +12,8 @@ interface FormValue{
     updateFieldState : Function,
     counteggs : Number,
     fieldState : string,
+    calcBtn: Function,
+    restField : Function
 }
 
 type EggsStartNumber = 300 | 400 | 300000 | 400000;

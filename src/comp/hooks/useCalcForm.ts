@@ -11,8 +11,18 @@ export const useCalcForm  = () =>{
     const [maturity,setMaturity] = useState<EggType>("immature");
     const eggInputData:number = Number(fieldState); 
     const optionData:number = Number(optionValue);      
-    const eggs:number | undefined = Caculation(eggInputData, optionData as EggsStartNumber);
 
+    const calcBtn = () =>{
+        // console.log( "Hello World");
+        updateFieldState(fieldState);
+        const eggs:number | undefined = Caculation(eggInputData, optionData as EggsStartNumber);
+        eggs ? setCountEggs(eggs) : setCountEggs(0);
+        console.log(`Egg Count ${eggs}`)
+    }
+
+    const restField =() =>{
+      setCountEggs(0);  
+    }
     useEffect(() =>{
         if(maturity === 'mature' && optionValue !== "400"){
             setOptionValue("300");
@@ -21,9 +31,9 @@ export const useCalcForm  = () =>{
             setOptionValue("400000");
         }
 
-        eggs ? setCountEggs(eggs) : setCountEggs(0);
-                  
-    },[setCountEggs,maturity,optionValue,eggs,fieldState]);
+    },[setCountEggs,maturity,optionValue,fieldState]);
+
+    
 
     const calcData:FormValue = {
         optionValue,
@@ -32,7 +42,9 @@ export const useCalcForm  = () =>{
         setMaturity,
         counteggs,
         updateFieldState,
-        fieldState
+        fieldState,
+        calcBtn,
+        restField
     }
 
 
