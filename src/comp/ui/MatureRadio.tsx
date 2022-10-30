@@ -5,7 +5,7 @@ import EggProvider from "../utilz/EggProvider"
 export const MatureRadio = () =>{
     const {maturity,setMaturity} = useContext(EggProvider);
     return(
-        <section className="flex flex-cols-2 ">
+        <section className="">
         <section>
             <label className='pr-1 '> Immauture egg count</label>
             <input type="radio" name="maturity" value="immature" checked={maturity === "immature"} onChange={(e) => setMaturity(e.target.value ) as EggType}/><br/>

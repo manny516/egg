@@ -6,7 +6,7 @@ import { EggType,EggsStartNumber,FormValue} from '../appTypes';
 
 export const useCalcForm  = () =>{
     const [counteggs,setCountEggs]= useState<number>(0);
-    const [fieldState, updateFieldState] = useState<string>(" ");
+    const [fieldState, updateFieldState] = useState<string>("");
     const [optionValue,setOptionValue] = useState<string>("300000");
     const [maturity,setMaturity] = useState<EggType>("immature");
     const eggInputData:number = Number(fieldState); 
@@ -18,12 +18,15 @@ export const useCalcForm  = () =>{
         const eggs:number | undefined = Caculation(eggInputData, optionData as EggsStartNumber);
         eggs ? setCountEggs(eggs) : setCountEggs(0);
         console.log(`Egg Count ${eggs}`)
+        localStorage.setItem('age',JSON.stringify(fieldState));
     }
 
     const restField =() =>{
       setCountEggs(0);  
+      updateFieldState("");
     }
     useEffect(() =>{
+
         if(maturity === 'mature' && optionValue !== "400"){
             setOptionValue("300");
         }
