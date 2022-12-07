@@ -13,8 +13,12 @@ interface FormValue{
     counteggs : Number,
     fieldState : string,
     calcBtn: Function,
-    restField : Function
+    restField : Function,
+    botCheck : Boolean,
+    setBotCheck : Function,
+
 }
+
 
 type EggsStartNumber = 300 | 400 | 300000 | 400000;
 
