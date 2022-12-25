@@ -16,7 +16,6 @@ export const useCalcForm  = () =>{
     const [botCheck, setBotCheck] = useState<Boolean>(false);
 
     const calcBtn = () =>{
-        // console.log( "Hello World");
         if(!botCheck){
             updateFieldState(fieldState);
             const eggs:number | undefined = Caculation(eggInputData, optionData as EggsStartNumber);
@@ -27,7 +26,6 @@ export const useCalcForm  = () =>{
                 { "age": fieldState,
                 [maturity] : optionValue,
                 "domain" : siteDomain
-
                 },
             ]);        
             console.log("age",ageTracker);
