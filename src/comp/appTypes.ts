@@ -6,16 +6,18 @@ interface FormProps{
 
 interface FormValue{
     optionValue : string,
-    setOptionValue : Function,
+    setOptionValue : React.Dispatch<React.SetStateAction<string>>,
     maturity : EggType,
-    setMaturity : Function,
-    updateFieldState : Function,
-    counteggs : Number,
+    setMaturity : React.Dispatch<React.SetStateAction<EggType>>,
+    setFieldState : React.Dispatch<React.SetStateAction<string>>,
+    counteggs : number,
     fieldState : string,
     calcBtn: Function,
     restField : Function,
     botCheck : Boolean,
-    setBotCheck : Function,
+    setBotCheck :  React.Dispatch<React.SetStateAction<Boolean>>,
+    pubertyAge : string,
+    setPubertyAge :  React.Dispatch<React.SetStateAction<string>> 
 
 }
 

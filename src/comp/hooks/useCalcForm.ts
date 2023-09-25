@@ -6,19 +6,21 @@ import { EggType,EggsStartNumber,FormValue} from '../appTypes';
 
 export const useCalcForm  = () =>{
     const [counteggs,setCountEggs]= useState<number>(0);
-    const [fieldState, updateFieldState] = useState<string>("");
+    const [fieldState, setFieldState] = useState<string>("");
+    const [pubertyAge,setPubertyAge] = useState<string>("12");
     const [optionValue,setOptionValue] = useState<string>("400");
     const [maturity,setMaturity] = useState<EggType>("mature");
     const eggInputData:number = Number(fieldState); 
-    const optionData:number = Number(optionValue);      
+    const optionData:number = Number(optionValue);  
+    const pubertyAgeData:number = Number(pubertyAge)    
     const [ageTracker,setAgeTracker] = useState<Object>(); 
     const [siteDomain, setSiteDomain] = useState<string | undefined>();
     const [botCheck, setBotCheck] = useState<Boolean>(false);
 
     const calcBtn = () =>{
         if(!botCheck){
-            updateFieldState(fieldState);
-            const eggs:number | undefined = Caculation(eggInputData, optionData as EggsStartNumber);
+            setFieldState(fieldState);
+            const eggs:number | undefined = Caculation(pubertyAgeData,eggInputData, optionData as EggsStartNumber);
             eggs ? setCountEggs(eggs) : setCountEggs(0);
             console.log(`Egg Count ${eggs}`)
             localStorage.setItem('age',JSON.stringify(fieldState));
@@ -35,7 +37,7 @@ export const useCalcForm  = () =>{
 
     const restField =() =>{
       setCountEggs(0);  
-      updateFieldState("");
+      setFieldState("");
       setBotCheck(false);
     }
 
@@ -66,12 +68,15 @@ export const useCalcForm  = () =>{
         maturity,
         setMaturity,
         counteggs,
-        updateFieldState,
+        setFieldState,
         fieldState,
         calcBtn,
         restField,
         botCheck,
         setBotCheck,
+        pubertyAge,
+        setPubertyAge
+    
     }
 
 
